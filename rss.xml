@@ -1,38 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tony's Blog]]></title><description><![CDATA[Tony West's tech blog]]></description><link>https://tonyw0527.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 May 2021 17:10:38 GMT</lastBuildDate><item><title><![CDATA[자바스크립트의 비동기]]></title><description><![CDATA[자바스크립트 비동기를 위해 알아야한 키워드 동기(sync) & 비동기(async) ex) 1번, 2번, 3번이라고 부르는 세 가지 일이 있다고 하자 동기 - 1번 작업이 끝나면 2번 작업을 시작, 2번 작업이 끝나면 3번 작업이 시작 비동기 -…]]></description><link>https://tonyw0527.github.io/자바스크립트-비동기/</link><guid isPermaLink="false">https://tonyw0527.github.io/자바스크립트-비동기/</guid><pubDate>Wed, 05 May 2021 02:10:03 GMT</pubDate><content:encoded>&lt;p&gt;자바스크립트 비동기를 위해 알아야한 키워드&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tony's Blog]]></title><description><![CDATA[Tony West's tech blog]]></description><link>https://tonyw0527.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 May 2021 17:48:05 GMT</lastBuildDate><item><title><![CDATA[자바스크립트의 비동기]]></title><description><![CDATA[자바스크립트 비동기를 위해 알아야한 키워드 동기(sync) & 비동기(async) 1번, 2번, 3번이라고 부르는 세 가지 일이 있다고 하자 동기 - 1번 작업이 끝나면 2번 작업을 시작, 2번 작업이 끝나면 3번 작업이 시작 비동기 - 1번,…]]></description><link>https://tonyw0527.github.io/자바스크립트-비동기/</link><guid isPermaLink="false">https://tonyw0527.github.io/자바스크립트-비동기/</guid><pubDate>Wed, 05 May 2021 02:10:03 GMT</pubDate><content:encoded>&lt;h2&gt;자바스크립트 비동기를 위해 알아야한 키워드&lt;/h2&gt;
+&lt;h3&gt;동기(sync) &amp;#x26; 비동기(async)&lt;/h3&gt;
+&lt;p&gt;1번, 2번, 3번이라고 부르는 세 가지 일이 있다고 하자&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;동기&lt;/strong&gt; - 1번 작업이 끝나면 2번 작업을 시작, 2번 작업이 끝나면 3번 작업이 시작&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;비동기&lt;/strong&gt; - 1번, 2번, 3번 작업이 동시에 진행됨&lt;/p&gt;
+&lt;p&gt;비동기 작업을 하는 API 예시 - 브라우저 또는 node.js가 아래의 API를 제공해준다. (순수 자바스크립트에는 비동기 API가 없다한다)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;동기(sync) &amp;#x26; 비동기(async)&lt;/li&gt;
+&lt;li&gt;Ajax - 비동기로 통신하기 위한 API. fetch함수가 바로 Ajax작업을 위한 공식 API이며 axios는 더 쉽게 Ajax를 하기 위한 라이브러리&lt;/li&gt;
+&lt;li&gt;파일 읽기&lt;/li&gt;
+&lt;li&gt;암호화 / 복호화&lt;/li&gt;
+&lt;li&gt;작업 예약 - setTimeout()과 같은 것&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;ex) 1번, 2번, 3번이라고 부르는 세 가지 일이 있다고 하자&lt;/p&gt;
-&lt;p&gt;동기 - 1번 작업이 끝나면 2번 작업을 시작, 2번 작업이 끝나면 3번 작업이 시작&lt;/p&gt;
-&lt;p&gt;비동기 - 1번, 2번, 3번 작업이 동시에 진행됨&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;비동기 작업을 위한 API의 예시 - 브라우저 또는 node.js가 아래의 API를 제공해준다. (순수 자바스크립트에는 비동기 API가 없다한다)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ajax(비동기로 통신하기 위한 api. fetch함수가 바로 ajax작업을 위한 공식 api. axios는 더 쉽게 ajax를 하기 위한 라이브러리)&lt;/p&gt;
-&lt;p&gt;파일 읽기&lt;/p&gt;
-&lt;p&gt;암호와/복호와&lt;/p&gt;
-&lt;p&gt;작업 예약(setTimeout()과 같은 것)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;비동기 작업이 가질 수 있는 3가지 상태 - pending, fulfilled, rejected&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;비동기 작업이 가질 수 있는 3가지 상태 - pending, fulfilled, rejected&lt;/h2&gt;
 &lt;p&gt;단순히 Promise가 이러한 상태들을 먼저 정의했다기 보다는 일반적으로 생각해볼 때 비동기 작업은 이러한 세 가지 상태를 가진다고 볼 수 있기에 Promise에서 이 상태들을 이용해 로직 분리를 쉽게해주어 callback을 이용한 처리를 쉽게 해준 것 같다.&lt;/p&gt;
 &lt;p&gt;하나의 콜백안에 이 세 가지 상태의 처리 로직이 다 들어가 있는데, 또 콜백의 콜백의 콜백을 호출하니 지옥이 될 수 밖에 없는 것… ㄷ ㄷ 그래서 Promise는 똑똑하게 상태에 따른 로직 분리를 해주고 상태에 맞게 콜백 처리를 해준다!&lt;/p&gt;
 &lt;p&gt;ex) 오케이 나 약속할게요. 데이터 끌어오기 작업을 A 서버에 이렇게 할거구요. 성공하면 서버로부터 받은 data를 넣어서 resolve(data) 함수를 호출할게요. 그런데 실패한다면 error 객체를 넣어서 reject(error) 함수를 호출할게요. OK?&lt;/p&gt;
 &lt;p&gt;성공할 경우 data를 결과값으로 보내줄꺼니까 data를 인자로 받을 콜백 함수를 .then(callback(data))와 같이 넣어서 처리해줘요. 실패할 경우에는 error객체를 결과값으로 보내줄꺼고 errror 객체를 인자로 받을 콜백 함수를 .catch(callback(error))와 같이 넣어서 처리해주면 되구요. 간단하죠? ㅎㅎ&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;비동기 처리의 진화&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;1단계 - 콜백(callback) - 가장 기본적인 방법. fn(callback(a)){callback()}asdfasdfasdf 무튼 복잡함.&lt;/p&gt;
+&lt;h2&gt;비동기 처리의 진화&lt;/h2&gt;
+&lt;h3&gt;1단계 - 콜백(callback)&lt;/h3&gt;
+&lt;p&gt;가장 기본적인 방법. fn(callback(a)){callback()}asdfasdfasdf 무튼 복잡함.&lt;/p&gt;
 &lt;p&gt;함수의 인자로 보내주는 함수를 칭하며, 보통 비동기 API 함수의 인자로 보내어 함수 내부의 특정한 지점에서 특정한 처리를 해주기 위해 사용. 다시 말해, 비동기로 실행한 작업의 결과값을 받아 다시 비동기 작업을 실행하거나 또는 동기적인 작업을 실행하는 등의 결과값 처리를 해주기 위해서!&lt;/p&gt;
 &lt;p&gt;콜백함수 내에서 다시 비동기 API 함수를 사용하고 비동기 API 함수를 위한 콜백을 인자로 보내주는 경우 콜백 지옥이 발생!&lt;/p&gt;
-&lt;p&gt;2단계 - 프로미스(Promise) - 콜백지옥 빡치네.. 일단 비동기 작업이 미래에 어떤 결과 가져올지 모르니까 진행, 성공, 실패 상태로 로직 분기하고 성공 때 resolve, 실패 때 reject 함수 호출해주기로 약속할께ㅇㅇ.&lt;/p&gt;
+&lt;h3&gt;2단계 - 프로미스(Promise)&lt;/h3&gt;
+&lt;p&gt;콜백지옥 빡치네.. 일단 비동기 작업이 미래에 어떤 결과 가져올지 모르니까 진행, 성공, 실패 상태로 로직 분기하고 성공 때 resolve, 실패 때 reject 함수 호출해주기로 약속할께ㅇㅇ.&lt;/p&gt;
 &lt;p&gt;그리고 성공하면 .then(callback(arg))을 이용해 콜백 처리할꺼야! 실패하면 .catch(callback(arg))통해 할꺼구! 콜백 지옥 ㅂ2.&lt;/p&gt;
 &lt;p&gt;콜백 지옥을 해결하고 비동기 작업을 또는 비동기 api를 동기적인 모습으로 다루기 위해 Promise 객체가 도입됨(es6). promise라는 이름에서 유추할 수 있듯이 Promise객체 생성시 보내주는 콜백함수 안에서 resolve, reject 함수를 인자로 받아 비동기 작업을 처리하는 내부 로직에 따라 성공시 resolve(arg) 또는 실패시 reject(arg) 함수를 호출하겠다고 약속해 놓는 것이다.(성공과 실패는 자기가 구현하기에 따라 어떤 조건에서는 resolve를, 어떤 부분에서는 reject를 호출하면 되는 것이다. arg는 서버로부터 받은 데이터나 Error객체 등이 될 수 있겠다.)&lt;/p&gt;
 &lt;p&gt;이런 약속을 통해 resolve가 호출되는 성공시 .then(n=&gt;{}), reject가 호출되는 실패시 .catch(n=&gt;{})를 이용하여 동기적인 모습으로 비동기 작업을 처리할 수 있게 해주는 것이 Promise 객체이다.&lt;/p&gt;
-&lt;p&gt;ex) getMyDataFrom(’&lt;a href=&quot;http://tonyw.com/mydata&amp;#x27;&quot;&gt;http://tonyw.com/mydata’&lt;/a&gt;).then(data =&gt; {console.log(data)}).catch(error =&gt; {console.error(error)})&lt;/p&gt;
+&lt;p&gt;ex)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;getMyDataFrom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;http://tonyw.com/mydata&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;getMyDataFrom함수를 실행하고 성공하면 데이터를 받아서 콘솔 출력해줘!. 근데 실패하면 에러 객체를 콘솔 출력해줘ㅠ.&lt;/p&gt;
-&lt;p&gt;p.s) Promise는 pending, fulfilled, rejected의 세 가지 상태를 가진다.&lt;/p&gt;
-&lt;p&gt;3단계 - async, await - .then() .catch() 안에 콜백 넣어서 쓰면 여전히 다양한 로직 구현은 어려움 ㅡㅡ. 비동기 처리 결과값 줄 때까지 기다리고 결과값 받으면 변수에 넣어 일반적으로 동기 코드 쓰듯이 동기적으로 처리할꺼임 ^^ 꿀 :)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Promise는 pending, fulfilled, rejected 비동기의 세 가지 상태를 가진다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;3단계 - async, await&lt;/h3&gt;
+&lt;p&gt;.then() .catch() 안에 콜백 넣어서 쓰면 여전히 다양한 로직 구현은 어려움 ㅡㅡ. 비동기 처리 결과값 줄 때까지 기다리고 결과값 받으면 변수에 넣어 일반적으로 동기 코드 쓰듯이 동기적으로 처리할꺼임 ^^ 꿀 :)&lt;/p&gt;
 &lt;p&gt;프로미스를 통해 콜백 지옥을 벗어낫지만 프로미스도 .then().then().then()과 같이 .then()이 길어지면 마찬가지로 복잡해보이고 조건에 따른 분기 작업도 어려웠으며 중간의 .then()에서 에러가 난 경우 어느 .then()에서 에러가 발생한 것인지 디버깅이 어려운 단점이 있었다.&lt;/p&gt;
 &lt;p&gt;따라서 es8에서는 async, await 키워드가 도입되어 이 문제를 해결 했으며 promise를 이용한 방식보다도 더 동기 함수와 같은 모습으로 비동기처리를 할 수 있게 되었다. Promise에서 콜백 지옥을 벗어나 좀 더 동기적인 모습으로 콜백을 사용할 수 있게 해주었고, async, await에서는 Promise도 사용하면서도 콜백 함수 없이 비동기 함수의 결과값을 완전한 동기적인 모습으로 처리 할 수 있게 된 것이다. 콜백함수를 사용한다는 것은 비동기적 작업을 처리해줄 때 사용한다는 느낌이 강한데, async, await에서는 콜백을 사용하지 않기 때문이다!&lt;/p&gt;
 &lt;p&gt;ex) 서버로부터 데이터를 받아오는 비동기작업을 처리하는 예(위의 promise 예제를 async, await 방식으로)&lt;/p&gt;
@@ -51,112 +57,15 @@
 &lt;p&gt;// async 함수는 promise 객체를 반환하여 .then을 사용할 수 있다.
 handleDataLikeSync().then(flag =&gt; {console.log(flag)})&lt;/p&gt;
 &lt;p&gt;p.s) async, await에서는 try, catch 구문으로 에러를 핸들링한다.&lt;/p&gt;
-&lt;p&gt;요약&lt;/p&gt;
+&lt;h2&gt;요약&lt;/h2&gt;
 &lt;p&gt;비동기 처리 어떻게 할까?&lt;/p&gt;
 &lt;p&gt;-&gt; 1단계 - 콜백함수를 쓰자!&lt;/p&gt;
 &lt;p&gt;-&gt; 2단계 - 프로미스로 성공, 실패 분기 처리하기로 약속해줘서 더 쉽게 콜백함수 쓰자!&lt;/p&gt;
-&lt;p&gt;-&gt; 3단계 - async &amp;#x26; await로 콜백함수 버리고 동기적으로 처리하자 :)&lt;/p&gt;
-&lt;p&gt;심화&lt;/p&gt;
-&lt;p&gt;이벤트 루프를 이용하는 자바스크립트의 동작 구조&lt;/p&gt;</content:encoded></item><item><title><![CDATA[New Beginnings]]></title><description><![CDATA[Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in…]]></description><link>https://tonyw0527.github.io/new-beginnings/</link><guid isPermaLink="false">https://tonyw0527.github.io/new-beginnings/</guid><pubDate>Thu, 28 May 2015 22:40:32 GMT</pubDate><content:encoded>&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.&lt;/p&gt;
-&lt;h2&gt;On deer horse aboard tritely yikes and much&lt;/h2&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;This however showed weasel&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Well uncritical so misled&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;this is very interesting&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Goodness much until that fluid owl&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;When she reached the first hills of the &lt;strong&gt;Italic Mountains&lt;/strong&gt;, she had a last
-view back on the skyline of her hometown &lt;em&gt;Bookmarksgrove&lt;/em&gt;, the headline of
-&lt;a href=&quot;http://google.com&quot;&gt;Alphabet Village&lt;/a&gt; and the subline of her own road, the Line
-Lane. Pityful a rhetoric question ran over her cheek, then she continued her
-way. On her way she met a copy.&lt;/p&gt;
-&lt;h3&gt;Overlaid the jeepers uselessly much excluding&lt;/h3&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-&lt;a href=&quot;http://google.com&quot;&gt;Longe and Parole&lt;/a&gt; and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.&lt;/p&gt;
-&lt;h3&gt;According a funnily until pre-set or arrogant well cheerful&lt;/h3&gt;
-&lt;p&gt;The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;So baboon this&lt;/li&gt;
-&lt;li&gt;Mounted militant weasel gregariously admonishingly straightly hey&lt;/li&gt;
-&lt;li&gt;Dear foresaw hungry and much some overhung&lt;/li&gt;
-&lt;li&gt;Rash opossum less because less some amid besides yikes jeepers frenetic
-impassive fruitlessly shut&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rhetoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and
-return to its own, safe country.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.&lt;/p&gt;
-&lt;h4&gt;Silent delightfully including because before one up barring chameleon&lt;/h4&gt;
-&lt;p&gt;Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.&lt;/p&gt;
-&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.&lt;/p&gt;
-&lt;h5&gt;Wherever far wow thus a squirrel raccoon jeez jaguar this from along&lt;/h5&gt;
-&lt;p&gt;She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rhetoric question ran over her cheek, then she continued her way. On her way she
-met a copy.&lt;/p&gt;
-&lt;h6&gt;Slapped cozy a that lightheartedly and far&lt;/h6&gt;
-&lt;p&gt;The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word “and” and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My Second Post!]]></title><description><![CDATA[Wow! I love blogging so much already. Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the…]]></description><link>https://tonyw0527.github.io/my-second-post/</link><guid isPermaLink="false">https://tonyw0527.github.io/my-second-post/</guid><pubDate>Wed, 06 May 2015 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;Wow! I love blogging so much already.&lt;/p&gt;
-&lt;p&gt;Did you know that “despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich.”?
-(&lt;a href=&quot;https://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;Wikipedia Link&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Yeah, I didn’t either.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://tonyw0527.github.io/hello-world/</link><guid isPermaLink="false">https://tonyw0527.github.io/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
+&lt;p&gt;-&gt; 3단계 - async &amp;#x26; await로 콜백함수 없이 동기적으로 코딩하자 :)&lt;/p&gt;
+&lt;h2&gt;더 알면 좋은 것&lt;/h2&gt;
+&lt;p&gt;이벤트 루프를 이용하는 자바스크립트의 동작 구조&lt;/p&gt;</content:encoded></item><item><title><![CDATA[블로그를 시작하며]]></title><description><![CDATA[기존에 Tistory…]]></description><link>https://tonyw0527.github.io/블로그를-시작하며/</link><guid isPermaLink="false">https://tonyw0527.github.io/블로그를-시작하며/</guid><pubDate>Tue, 04 May 2021 23:59:59 GMT</pubDate><content:encoded>&lt;p&gt;기존에 Tistory를 이용하여 블로깅을 해왔으나, 지속적으로 개발하며 가꾸는 나만의 블로그를 만들어 보고 싶었고 마크다운을 사용하여 글을 작성하고 싶었습니다.&lt;/p&gt;
+&lt;p&gt;‘언젠가는 만들어야지’하면서 미루고 미루다 이렇게 시작해봅니다. 하나 둘씩 유용한 글도 올리고 UI도 업데이트하면서 재밌게 블로그를 가꾸어 보겠습니다!&lt;/p&gt;
+&lt;p&gt;To be continued…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://tonyw0527.github.io/hello-world/</link><guid isPermaLink="false">https://tonyw0527.github.io/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
 &lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
 &lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
