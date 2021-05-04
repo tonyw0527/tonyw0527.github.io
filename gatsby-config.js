@@ -11,6 +11,7 @@ module.exports = {
       twitter: ``,
     },
   },
+  pathPrefix: "reponame",
   plugins: [
     `gatsby-plugin-image`,
     {
