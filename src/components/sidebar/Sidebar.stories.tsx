@@ -1,13 +1,15 @@
-import React from "react"
-import { Story, Meta } from "@storybook/react"
-import Sidebar from "./Sidebar"
+import React from "react";
+import { Story, Meta } from "@storybook/react";
+import Sidebar, { SidebarProps } from "./Sidebar";
 
 export default {
   component: Sidebar,
   title: "component/Sidebar",
-} as Meta
+} as Meta;
 
-const Template: Story = args => <Sidebar {...args} />
+const Template: Story<SidebarProps> = args => <Sidebar {...args} />;
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {
+  posts: [],
+};
