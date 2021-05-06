@@ -101,7 +101,8 @@ index.js가 log.js를 의존하고 있는 모습입니다.
 웹팩 4.0 버전부터 zero config를 지원하는데 루트 폴더아래 src와 dist 폴더를 생성하고 번들링할 모듈들을 src폴더에 집어 넣은 후, 아래의 명령어를 실행합니다.
 
 ```shell
-npx webpack
+npx webpack // 또는
+yarn webpack
 ```
 
 > npx는 node_modules/.bin 폴더 아래 있는 실행파일들을 실행시키는 명령어다.
