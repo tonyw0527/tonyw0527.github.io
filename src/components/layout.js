@@ -37,7 +37,7 @@ const Layout = ({ location, title, posts, children }) => {
       </header>
       <main>{children}</main>
       <footer css={$footer}>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()} TonyWest powered by
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>

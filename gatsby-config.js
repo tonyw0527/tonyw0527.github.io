@@ -3,7 +3,7 @@ module.exports = {
     title: `Tony's Blog`,
     author: {
       name: `Tony West`,
-      summary: `웹기술 전반에 관심이 많으며 자바스크립트로 이것 저것 만드는 것을 좋아합니다 :)`,
+      summary: `웹기술 전반에 관심이 많으며 자바스크립트로 이것 저것 만드는 것을 좋아합니다.`,
     },
     description: `Tony West's tech blog`,
     siteUrl: `https://tonyw0527.github.io/`,
