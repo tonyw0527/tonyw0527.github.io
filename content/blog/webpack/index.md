@@ -33,14 +33,14 @@ description: "웹팩에 대한 내용들을 정리했습니다."
 
 ```js
 const path = require("path");
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development'
-  entry: "./app.js",
+  mode: "development",
+  entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
+    filename: "main.js",
     path: path.resolve(__dirname, "./dist"),
   },
   module: {
@@ -60,13 +60,13 @@ module.exports = {
     port: 3000,
     hot: true,
     proxy: {
-      '/api': {
-        target: 'https://example.com',
-        changeOrigin: true
-      }
-    }
+      "/api": {
+        target: "https://example.com",
+        changeOrigin: true,
+      },
+    },
   },
-  devtool: 'cheap-eval-source-map'
+  devtool: "cheap-eval-source-map",
 };
 ```
 
@@ -84,16 +84,16 @@ yarn add -D webpack webpack-cli
 
 ```js
 // index.js
-import { helloWorld } from "./log"
+import { helloWorld } from "./log";
 
-helloWorld()
+helloWorld();
 ```
 
 ```js
 // log.js
 export const helloWorld = () => {
-  console.log("hello world")
-}
+  console.log("hello world");
+};
 ```
 
 index.js가 log.js를 의존하고 있는 모습입니다.
