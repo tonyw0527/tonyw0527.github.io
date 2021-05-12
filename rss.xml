@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tony's Blog]]></title><description><![CDATA[Tony West's tech blog]]></description><link>https://tonyw0527.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 10 May 2021 10:00:48 GMT</lastBuildDate><item><title><![CDATA[DOM이벤트에서 이벤트 위임까지]]></title><description><![CDATA[DOM 이벤트 각 DOM 요소들은 특정한 조건을 감지하였을 때, DOM 이벤트를 발생시킵니다. 그리고 이렇게 발생 된 DOM 이벤트를 제어하기 위해 이벤트 핸들러를 각 DOM 요소에 등록하여 사용합니다. 이벤트 흐름 표준 DOM 이벤트에서는…]]></description><link>https://tonyw0527.github.io/event-delegation/</link><guid isPermaLink="false">https://tonyw0527.github.io/event-delegation/</guid><pubDate>Mon, 10 May 2021 17:08:03 GMT</pubDate><content:encoded>&lt;h2&gt;DOM 이벤트&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Tony's Blog]]></title><description><![CDATA[Tony West's tech blog]]></description><link>https://tonyw0527.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 12 May 2021 08:04:20 GMT</lastBuildDate><item><title><![CDATA[자바스크립트의 함수 호출 방식은 Call by value 입니다.]]></title><description><![CDATA[Primitive Type 자바스크립트에는 boolean, number, string, null, undefined 5 가지의 원시 타입(primitive type)이 있습니다. 원시 타입은 변수에 값 자체를 할당합니다. 따라서 const…]]></description><link>https://tonyw0527.github.io/call-by-value/</link><guid isPermaLink="false">https://tonyw0527.github.io/call-by-value/</guid><pubDate>Wed, 12 May 2021 01:16:10 GMT</pubDate><content:encoded>&lt;h2&gt;Primitive Type&lt;/h2&gt;
+&lt;p&gt;자바스크립트에는 boolean, number, string, null, undefined 5 가지의 원시 타입(primitive type)이 있습니다.&lt;/p&gt;
+&lt;p&gt;원시 타입은 변수에 값 자체를 할당합니다. 따라서 const로 선언된 상수에는 값을 변경할 수 없죠.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 5&lt;/span&gt;
+
+foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Uncaught TypeError: Assignment to constant variable.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Object Type&lt;/h2&gt;
+&lt;p&gt;반면에 자바스크립트의 객체 타입(Object Type)은 변수에 객체의 참조 주소를 값으로 할당합니다.&lt;/p&gt;
+&lt;p&gt;따라서 아래와 같이 const로 객체를 선언한 후에 해당 상수를 통해 객체의 프로퍼티를 설정해도 오류가 나지 않죠. 프로퍼티를 바꾸는 것이지 const에 할당된 참조 주소를 변경하는 것이 아니기 때문이죠.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;kim&apos;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;age &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Uncaught TypeError: Assignment to constant variable.&lt;/span&gt;
+  reset&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참조 주소 - 메모리에 할당된 값이 저장된 주소&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Call by value&lt;/h2&gt;
+&lt;p&gt;Call by value와 Call by reference는 함수를 호출할 때 arguments들을 어떤 방식으로 불러오느냐를 나타내는 말입니다.&lt;/p&gt;
+&lt;p&gt;글의 제목처럼 자바스크립트는 Call by value 방식으로 함수를 호출합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;원시 타입&lt;/strong&gt;인 경우에는 call by value라는 의미 그대로 이해하기가 쉬울 것 입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; num &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;changeNum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;changeNum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;changeNum이라는 함수에 num 변수를 파라미터로 넣어주어도 num 변수의 값을 복사했기 때문에 changeNum 내부에서 파라미터에 할당된 값을 변경하여도 함수 밖의 num 변수의 값은 변화없이 1이 출력됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;객체 타입&lt;/strong&gt;
+반면에 객체 타입일 때 아래와 같은 경우일 때가 자바스크립트의 함수 호출이 call by reference라고 착각하게 되는 경우일 것입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  isGood&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  o&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isGood &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; o&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true - obj와 o가 같은 값을 참조하고 있음.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isGood&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서 객체 타입은 변수에 참조 주소를 값으로 설명드렸죠? 함수의 파라미터도 마찬가지라고 생각하면 됩니다. 함수 파라미터에도 변수와 마찬가지로 참조 &lt;em&gt;주소의 값이 복사&lt;/em&gt;(call by value)되어 들어간 것이죠. 함수의 파라미터를 그냥 일반 변수라고 생각하면 이해하시기 쉬울 것입니다. 따라서 아래와 같은 경우가 생기는 것이죠.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  isGood&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  o &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    isGood&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; o&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// false - obj와 o가 다른 값을 참조한다.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;함수의 파라미터 o에는 새로운 객체의 참조 주소값이 할당 되었기 때문입니다. 여기서 알 수 있듯이 함수의 파라미터는 일반 변수들 처럼 단순히 값을 복사 받아서(call by value) 함수 내부에서 사용하는 것이죠.&lt;/p&gt;
+&lt;h2&gt;Call by reference&lt;/h2&gt;
+&lt;p&gt;C언어를 예를 들고 싶은데 코드를 빼고 간단하게 말로 적어보자면, Call by reference 방식의 경우 함수의 파라미터는 메모리 상의 값이 할당된 참조 주소를 의미합니다. call by value에서는 함수 파라미터의 값들을 새로 할당해 줄 수 있지만, call by reference 방식에서 함수 파라미터는 함수 인자로 받은 참조 주소를 계속해서 가르킵니다.&lt;/p&gt;
+&lt;p&gt;무슨 의미냐 하면은 만약 자바스크립트가 call by reference로 객체 타입 파라미터들을 다룰 수 있었다면 아래와 같았을 것입니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  isGood&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  o &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    isGood&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; o&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true - obj와 o가 같은 값을 참조한다. 만약 자바스크립트가 call by reference 였다면!&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;changeObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;obj&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;보충학습 - shallow clone &amp;#x26; deep clone&lt;/h2&gt;
+&lt;p&gt;자바스크립트의 함수 호출 방식이 call by value인 것을 알았습니다. 그렇다면 보충학습으로 자바스크립트의 객체는 어떻게 복사할 수 있을까요?&lt;/p&gt;
+&lt;p&gt;자바스크립트의 객체는 변수에 참조값을 할당합니다. 때문에 아래와 같은 코드에서는 obj1과 같은 내용을 가지고 있지만 참조값이 독립된 객체가 obj2에 복사되는 것이 아니고 obj1과 같은 참조값을 복사받게 됩니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  foo&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; obj2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj1&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그렇다면 어떻게해야 독립된 객체로 복사할 수 있을까요? 여러 방법이 있고 우선 복사정도에 따라 얕은 복사(shallow clone)와 깊은 복사(deep clone)가 있습니다.&lt;/p&gt;
+&lt;p&gt;이렇게 두 가지의 복사 형태로 나뉘게 되는 이유는 객체가 내부에 객체 타입의 프라퍼티를 가지고 있는 경우에 발생됩니다. 객체가 가지고 있는 원시타입들은 새롭게 값이 복사되지만 객체 타입의 프라퍼티들은 변수에 객체가 참조값이 할당되는 것처럼 동일하게 참조값이 복사되기 때문이죠.&lt;/p&gt;
+&lt;p&gt;** 얕은 복사 **는 아래와 같은 방법으로 가능합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Object.assign()&lt;/li&gt;
+&lt;li&gt;ES6 spread operator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;** 깊은 복사 **는 아래와 같은 방법으로 가능합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lodash 라이브러리의 deepclone 함수 사용하기&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[DOM이벤트에서 이벤트 위임까지]]></title><description><![CDATA[DOM 이벤트 각 DOM 요소들은 특정한 조건을 감지하였을 때, DOM 이벤트를 발생시킵니다. 그리고 이렇게 발생 된 DOM 이벤트를 제어하기 위해 이벤트 핸들러를 각 DOM 요소에 등록하여 사용합니다. 이벤트 흐름 표준 DOM 이벤트에서는…]]></description><link>https://tonyw0527.github.io/event-delegation/</link><guid isPermaLink="false">https://tonyw0527.github.io/event-delegation/</guid><pubDate>Mon, 10 May 2021 17:08:03 GMT</pubDate><content:encoded>&lt;h2&gt;DOM 이벤트&lt;/h2&gt;
 &lt;p&gt;각 DOM 요소들은 특정한 조건을 감지하였을 때, DOM 이벤트를 발생시킵니다. 그리고 이렇게 발생 된 DOM 이벤트를 제어하기 위해 이벤트 핸들러를 각 DOM 요소에 등록하여 사용합니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; myButton &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;myBtn&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
