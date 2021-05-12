@@ -1,7 +1,7 @@
 ---
 title: 자바스크립트의 함수 호출 방식은 Call by value 입니다.
 date: "2021-05-12T01:16:10.284Z"
-description: "Primitive type, Object Type, Call by value, Call by reference 각 개념을 통해 이해해봅시다."
+description: "Primitive type, Object Type, Call by value, Call by reference를 이해하고 나아가 Shallow clone과 deep clone에 대해서도 알아봅시다."
 ---
 
 ## Primitive Type
