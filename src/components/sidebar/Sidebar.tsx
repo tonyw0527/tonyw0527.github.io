@@ -119,7 +119,7 @@ const $sidebar = css`
 
 const $li = css`
   list-style: none;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 400;
   text-align: center;
 `;
